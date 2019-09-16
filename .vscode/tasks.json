@@ -1,0 +1,115 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Convert to New",
+            "type":"shell",
+            "command": "${workspaceFolder}/env/Scripts/python ./scripts/converter.py",
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Setup/Reinit Python Virtual Enviroment",
+            "type":"shell",
+            "command": "python ${workspaceFolder}/tasks/setup.py",
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Install package in virtual enviroment",
+            "type":"shell",
+            "command": "${workspaceRoot}/env/Scripts/pip install ${input:promptPackages}",
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+            }
+        },
+        {
+            "label": "Upgrade package in virtual enviroment",
+            "type":"shell",
+            "command": "${workspaceRoot}/env/Scripts/pip install --upgrade ${input:promptPackages}",
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+            }
+        },
+        { 
+            "label": "Uninstall package in virtual enviroment",
+            "type":"shell",
+            "command": "${workspaceRoot}/env/Scripts/pip uninstall ${input:promptPackages}",
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+            }
+        },
+        {
+            "label": "Freeze pip packages to requirements.txt",
+            "type":"shell",
+            "command": "${workspaceRoot}/env/Scripts/pip freeze | Out-File -Encoding UTF8 ./requirements.txt",
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+            },
+        },
+        {
+            "label": "List Modules",
+            "type":"shell",
+            "command": "${workspaceRoot}/env/Scripts/pip list",
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+            },
+        },
+    ],
+    "inputs":[
+        {
+            "id": "promptPackages",
+            "description": "Enter packages to install/unistall",
+            "default": "",
+            "type":"promptString"
+        }
+    ]
+}

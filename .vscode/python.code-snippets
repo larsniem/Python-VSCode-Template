@@ -1,0 +1,10 @@
+{
+    "func":{
+        "prefix": "func",
+        "body": [
+            "def ${1:Name}(${2:Parameters}) ${3:-> ReturnType}:",
+            "    ${4:pass}",
+        ],
+        "description": "Creates a function."
+    },
+}
