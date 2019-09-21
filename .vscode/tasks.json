@@ -4,21 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Convert to New",
-            "type":"shell",
-            "command": "${workspaceFolder}/env/Scripts/python ./scripts/converter.py",
-            "group": "none",
-            "problemMatcher": [],
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            }
-        },
-        {
             "label": "Setup/Reinit Python Virtual Enviroment",
             "type":"shell",
             "command": "python ${workspaceFolder}/tasks/setup.py",
